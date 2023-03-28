@@ -318,7 +318,7 @@ def RUN_CPKL(
 
     search_on, i_depth = 1, 1
     options = {'training_iter': training_iter,
-               'standardize': standardize, 'tolerance': tolerance}
+            'standardize': standardize, 'tolerance': tolerance}
 
     bic_old, best_models, best_bics, best_metrics = np.inf, [], [], []
     while search_on:
