@@ -72,7 +72,7 @@ def plot_result(model, test_x, test_y, plot_on=True, fn_sv=None):
     mae, mse = MAE(test_y.numpy(), ypred_mu), MSE(test_y.numpy(), ypred_mu)
     if plot_on:
         if model.train_inputs[0].shape[1] == 2:
-
+            plt.figure(figsize=(5, 5), dpi = 200)
             plt.plot(ypred_mu, test_y.numpy(), 'o')
             xmin_, xmax_ = plt.gca().get_xlim()
             plt.plot([xmin_, xmax_], [xmin_, xmax_], 'r:', label = 'x = y')
