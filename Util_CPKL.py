@@ -274,8 +274,6 @@ def train_best_via_multiple_restart(train_x, train_y, kernels, kernel_type, like
                 # print(f"[{i+1}//{len(kernels)}] kernel type: {kernel_type}, bic: {model.bic}")
 
             except Exception as e:
-                # print(e)
-
                 with gpytorch.settings.cholesky_jitter(1e-1):
                     # Initialize likelihood and model
                     model = ExactGPModel(deepcopy(train_x), deepcopy(
@@ -416,8 +414,8 @@ def RUN_CPKL(
 class ExactGPModel(gpytorch.models.ExactGP):
     def __init__(self, train_x, train_y, kernel, kernel_type, likelihood, options):
         super(ExactGPModel, self).__init__(train_x, train_y, likelihood)
+
         self.mean_module = gpytorch.means.ConstantMean()
-        # self.mean_module = gpytorch.means.ZeroMean()
         self.base_kernel = kernel
         self.covar_module = gpytorch.kernels.ScaleKernel(self.base_kernel)
         self.kernel_type = kernel_type
@@ -455,7 +453,7 @@ class ExactGPModel(gpytorch.models.ExactGP):
         model.train()
         likelihood.train()
 
-        from LBFGS import LBFGS, FullBatchLBFGS
+        from LBFGS import FullBatchLBFGS
 
         optimizer = FullBatchLBFGS(model.parameters())
         mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
