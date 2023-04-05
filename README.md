@@ -62,11 +62,11 @@ IMPORTANT: You may need to close and restart your shell after running 'conda ini
 ```
 <!-- ![conda_init_error.PNG](./img/conda_init_error.PNG) -->
 
-If you got the error message as above, then type:
-```bash
-source ~/anaconda3/etc/profile.d/conda.sh
-```
+If you got the error message as above, simply change the command for activation under linux enviroment as:
 
+```bash
+source activate CPKL_GPytorch
+```
 
 #### **2. [Errno 13] Permission denied:**
 ```bash
