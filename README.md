@@ -136,3 +136,6 @@ nvcc --version
 [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)  
 [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive)  
 [Examples of GPytorch](https://github.com/cornellius-gp/gpytorch/tree/master/examples)
+
+
+**There are some margins to be improved, although the source codes are working generally.**
